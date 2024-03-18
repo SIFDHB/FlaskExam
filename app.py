@@ -4,46 +4,42 @@ import os
 app = Flask(__name__)
 
 @app.route('/')
-def redirect():
-    return redirect(url_for('index.html'))
+def redir():
+    return render_template('index.html')
 
 @app.route('/index.html')
 def index():
     return render_template('index.html')
 
 @app.route('/information.html')
-def rere():
+def information():
     return render_template('information.html')
 
-@app.route('/submit.html')
-def information_html():
-    return render_template('submit.html')
+@app.route('/contact.html')
+def submit():
+    return render_template('contact.html')
 
 @app.route('/submit_feedback', methods=['POST'])
 def submit_feedback():
-    # Capture the form data
+    # Extract form data
     name = request.form['name']
-    course = request.form['course']
-    short_answer = request.form['short-answer']
-    long_answer = request.form['long-answer']
+    student_number = request.form['studentNumber']
+    email = request.form['email']
+    grades = request.form['grades']
     satisfaction = request.form['satisfaction']
-    recommend = request.form['recommend']
-    improvements = request.form.get('improvements', 'No suggestions')  # Optional field
+    improvements = request.form.get('improvements', '')  # Optional field
 
-    # Save the data to a .txt file
-    with open('feedback_results.txt', 'a', encoding='utf-8') as file:
-        file.write(f"Name: {name}\nCourse: {course}\nShort Answer: {short_answer}\n")
-        file.write(f"Long Answer: {long_answer}\nSatisfaction: {satisfaction}\n")
-        file.write(f"Recommend: {recommend}\nImprovements: {improvements}\n")
-        file.write("----------\n\n")
+    # Write form data to "document.txt"
+    with open("feedback_submissions.txt", "a") as file:
+        file.write(f"Name: {name}\nStudent Number: {student_number}\nEmail: {email}\nGrades: {grades}\nSatisfaction: {satisfaction}\nImprovements: {improvements}\n------------------------------------------\n")
 
-    # Redirect to a new page or back to the form
+    # Redirect or respond to indicate successful submission
     return redirect(url_for('feedback_submitted'))
 
 @app.route('/feedback_submitted')
 def feedback_submitted():
     # Render a template or return a response indicating success
-    return "Feedback submitted successfully!"
+    return render_template('feedback_submitted.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=2132)
