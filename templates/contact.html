@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <!-- Ensures the website is displayed correctly on all devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to the CSS file -->
+	<link rel="stylesheet" href="../static/style3.css">
+	<title>GIC Student Feedback Form</title>
+</head>
+<body>
+	<div class="container">
+		<!-- Navigation bar -->
+        <ul class="top_ul">
+		    <!-- Logo image -->
+		    <img class="logo" src="https://cdn.discordapp.com/attachments/909080708545404928/1214336575748706334/UoG_keyline.png?ex=65f8be10&is=65e64910&hm=799cab52952f0168989336d838d243f053a2cd727d6004153e1b4b3fdf09f4ee&">
+		    <!-- Navigation links -->
+            <li class="top_li"><a href="index.html">Welcome</a></li>
+            <li class="top_li"><a href="information.html">Learn More</a></li>
+            <li class="top_li"><a href="contact.html">Submit Feedback</a></li>
+        </ul>
+        <!-- Background image for visual appeal -->
+        <img class="background-img" src="https://pathways.kaplaninternational.com/pluginfile.php/2516068/block_cohortspecifichtml/content/3.png">
+        <header>
+            <br>
+            <!-- Page title -->
+            <h1>Submission</h1>
+            <br><br>
+            <!-- Decorative line -->
+            <div class="fade-line"></div>
+        </header>
+        <!-- Main content section -->
+	    <div class="inner-div">
+		    <!-- Form for student feedback submission -->
+		    <form>
+			    <label for="name">Your Name</label>
+			    <input type="text" id="name" name="name" required>
+			    <label for="studentNumber">Student Number</label>
+			    <input type="text" id="studentNumber" name="studentNumber" required>
+			    <label for="email">Email Address</label>
+			    <input type="email" id="email" name="email" required>
+			    <label for="grades">Grades Obtained in Your Courses</label>
+			    <textarea id="grades" name="grades" rows="4" required></textarea>
+			    <label for="satisfaction">Overall Satisfaction with Academic Experience</label>
+			    <select id="satisfaction" name="satisfaction" required>
+				    <option value="">Select satisfaction level</option>
+				    <option value="excellent">Excellent</option>
+				    <option value="good">Good</option>
+				    <option value="average">Average</option>
+				    <option value="poor">Poor</option>
+			    </select>
+			    <label for="improvements">Suggestions for Improvement (Optional)</label>
+			    <textarea id="improvements" name="improvements" rows="4"></textarea>
+			    <button type="submit">Submit Feedback</button>
+		    </form>
+            <!-- Footer section -->
+		    <footer>
+			    <p><i>&copy; 2023 Saif Dehrab</i></p>
+		    </footer>
+	    </div>
+    </div>
+</body>
+</html>

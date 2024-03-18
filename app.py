@@ -4,8 +4,16 @@ import os
 app = Flask(__name__)
 
 @app.route('/')
+def redirect():
+    return redirect(url_for('index.html'))
+
+@app.route('/index.html')
+def index():
+    return render_template('index.html')
+
+@app.route('/information.html')
 def rere():
-    return render_template('submit.html')
+    return render_template('information.html')
 
 @app.route('/submit.html')
 def information_html():
