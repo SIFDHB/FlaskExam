@@ -30,7 +30,7 @@ def submit_feedback():
     improvements = request.form.get('improvements', '')  # Optional field
 
     # Write form data to "document.txt"
-    with open("feedback_submissions.txt", "a") as file:
+    with open("feedback.txt", "a") as file:
         file.write(f"Name: {name}\nStudent Number: {student_number}\nEmail: {email}\nGrades: {grades}\nSatisfaction: {satisfaction}\nImprovements: {improvements}\n------------------------------------------\n")
 
     # Redirect or respond to indicate successful submission
