@@ -82,6 +82,11 @@ footer {
   background-color: white;
 }
 
+/* Sets the display type and position for list items in the top navigation */
+.error {
+  color: red;
+}
+
 /* Styles for the background image, including a fading effect at the bottom */
 .background-img {
     -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));

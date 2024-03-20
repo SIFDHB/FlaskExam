@@ -32,27 +32,71 @@
         <!-- Main content section -->
 	    <div class="inner-div">
 		    <!-- Form for student feedback submission -->
-		    <form method="POST" action="/submit_feedback">
-			    <label for="name">Your Name</label>
-			    <input type="text" id="name" name="name" required>
-			    <label for="studentNumber">Student Number</label>
-			    <input type="text" id="studentNumber" name="studentNumber" required>
-			    <label for="email">Email Address</label>
-			    <input type="email" id="email" name="email" required>
-			    <label for="grades">Grades Obtained in Your Courses</label>
-			    <textarea id="grades" name="grades" rows="4" required></textarea>
-			    <label for="satisfaction">Overall Satisfaction with Academic Experience</label>
-			    <select id="satisfaction" name="satisfaction" required>
-				    <option value="">Select satisfaction level</option>
-				    <option value="excellent">Excellent</option>
-				    <option value="good">Good</option>
-				    <option value="average">Average</option>
-				    <option value="poor">Poor</option>
-			    </select>
-			    <label for="improvements">Suggestions for Improvement (Optional)</label>
-			    <textarea id="improvements" name="improvements" rows="4"></textarea>
-			    <button type="submit">Submit Feedback</button>
-		    </form>
+			<form method="POST" action="">
+				{{ form.hidden_tag() }}
+				<p>
+					{{ form.name.label }}<br>
+					{{ form.name() }}
+					{% if form.name.errors %}
+						<ul class="errors">
+							{% for error in form.name.errors %}
+                   				 <li class="error">{{ error }}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</p>
+				<!-- Repeat the structure for other fields -->
+				<p>
+					{{ form.studentNumber.label }}<br>
+					{{ form.studentNumber() }}
+					{% if form.studentNumber.errors %}
+						<ul class="errors">
+							{% for error in form.studentNumber.errors %}
+                   				 <li class="error">{{ error }}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</p>
+				<p>
+					{{ form.email.label }}<br>
+					{{ form.email() }}
+					{% if form.email.errors %}
+						<ul class="errors">
+							{% for error in form.email.errors %}
+                   				 <li class="error">{{ error }}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</p>
+				<p>
+					{{ form.grades.label }}<br>
+					{{ form.grades() }}
+					{% if form.grades.errors %}
+						<ul class="errors">
+							{% for error in form.grades.errors %}
+                   				 <li class="error">{{ error }}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</p>
+				<p>
+					{{ form.satisfaction.label }}<br>
+					{{ form.satisfaction() }}
+					{% if form.satisfaction.errors %}
+						<ul class="errors">
+							{% for error in form.satisfaction.errors %}
+                   				 <li class="error">{{ error }}</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</p>
+				<p>
+					{{ form.improvements.label }}<br>
+					{{ form.improvements() }}
+					<!-- No error check for improvements as it's optional -->
+				</p>
+				<p>{{ form.submit() }}</p>
+			</form>
             <!-- Footer section -->
 		    <footer>
 			    <p><i>&copy; 2023 Saif Dehrab</i></p>
